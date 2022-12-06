@@ -29,7 +29,7 @@ var corsOptions = {
   }
 }
 
-console.log("dotenv: ", __dirname+"/.env");
+console.assert("dotenv: ", __dirname+"/.env");
 dotenv.config({path:__dirname+"/.env"});
 
 const app = express();
@@ -50,10 +50,11 @@ app.get("*", (req, res) => {
 });
 
 const MONGO_URI="mongodb+srv://loki:kilo@cluster0.oczklsm.mongodb.net/?retryWrites=true&w=majority"
-console.log(process.env.MONGO_URI);
-console.log(process.env.SECRET_KEY);
-console.log(process.env.REFRESH_SECRET_KEY)
-console.log(process.env.SECRET_KEY_MAX_AGE);
+console.assert("Dotenv");
+console.assert(process.env.MONGO_URI);
+console.assert(process.env.SECRET_KEY);
+console.assert(process.env.REFRESH_SECRET_KEY)
+console.assert(process.env.SECRET_KEY_MAX_AGE);
 
 mongoose.connect(MONGO_URI).then(() => {
     console.log("then")

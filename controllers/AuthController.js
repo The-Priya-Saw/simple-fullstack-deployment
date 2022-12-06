@@ -13,6 +13,8 @@ const __dirname = dirname(__filename);
 // Add credentials: 'include' else cookie nahi store hogi browser me
 
 const SECRET_KEY='8c1f74a6beff453fd9e32ec3d29ec9e26dfa1a36'
+const REFRESH_SECRET_KEY="3e164de73e308e2a6029ff07b4ee073af0a5c1b5"
+const SECRET_KEY_MAX_AGE=604800000
 
 // Create JWT Tokens
 const createToken = (id) => {
