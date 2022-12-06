@@ -4,9 +4,9 @@ import UserModel from "../models/UserModel.js";
 
 const requireAuth = (req, res, next) => {
     const token = req.cookies.al_at;
-    const SECRET_KEY_MAX_AGE=604800000
+    const SECRET_KEY='8c1f74a6beff453fd9e32ec3d29ec9e26dfa1a36'
     if(token){
-        jwt.verify(token, process.env.SECRET_KEY, (err,decodedToken) => {
+        jwt.verify(token, process.env.SECRET_KEY || SECRET_KEY, (err,decodedToken) => {
             if(err){
                 console.log(err.message);
                 res.status(403).json({error:"token is not valid"});
