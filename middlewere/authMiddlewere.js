@@ -1,8 +1,10 @@
 import jwt from "jsonwebtoken";
 import UserModel from "../models/UserModel.js";
 
+
 const requireAuth = (req, res, next) => {
     const token = req.cookies.al_at;
+    const SECRET_KEY_MAX_AGE=604800000
     if(token){
         jwt.verify(token, process.env.SECRET_KEY, (err,decodedToken) => {
             if(err){
