@@ -29,7 +29,6 @@ var corsOptions = {
   }
 }
 
-
 dotenv.config();
 
 const app = express();
@@ -48,15 +47,11 @@ app.get("*", (req, res) => {
   let url = path.join(__dirname, '/public/', 'index.html');
   res.sendFile(url);
 });
-// app.get("/",(req,res)=>{
-//     // res.json({"msg":"message response"});
 
-//     // res.cookie("val","1234");
-//     res.send("cookie sent");
-// });
+const MONGO_URI="mongodb+srv://loki:kilo@cluster0.oczklsm.mongodb.net/?retryWrites=true&w=majority"
 
 
-mongoose.connect(process.env.MONGO_URI).then(() => {
+mongoose.connect(MONGO_URI).then(() => {
     console.log("then")
     app.listen(process.env.PORT,()=>{
         console.log("Server started at " + process.env.PORT)
