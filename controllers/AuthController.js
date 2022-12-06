@@ -12,10 +12,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 // Add credentials: 'include' else cookie nahi store hogi browser me
 
+const SECRET_KEY='8c1f74a6beff453fd9e32ec3d29ec9e26dfa1a36'
 
 // Create JWT Tokens
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.SECRET_KEY, {
+    return jwt.sign({ id }, process.env.SECRET_KEY || SECRET_KEY, {
         expiresIn: process.env.SECRET_KEY_MAX_AGE
     });
 }
