@@ -19,7 +19,7 @@ const SECRET_KEY_MAX_AGE=604800000
 // Create JWT Tokens
 const createToken = (id) => {
     return jwt.sign({ id }, process.env.SECRET_KEY || SECRET_KEY, {
-        expiresIn: process.env.SECRET_KEY_MAX_AGE
+        expiresIn: process.env.SECRET_KEY_MAX_AGE || SECRET_KEY_MAX_AGE
     });
 }
 
@@ -69,7 +69,7 @@ const registerUser = async (req, res) => {
         console.log(token);
 
         // Send JWT token as a cookie
-        res.cookie("al_at", token, { maxAge: process.env.SECRET_KEY_MAX_AGE, httpOnly: false });
+        res.cookie("al_at", token, { maxAge: process.env.SECRET_KEY_MAX_AGE || SECRET_KEY_MAX_AGE, httpOnly: false });
         res.status(200).json({ user: User._id });
 
     } catch (err) {
@@ -91,7 +91,7 @@ const loginUser = async (req, res) => {
 
                 // Send JWT token as a cookie
                 User.Password = undefined;
-                res.cookie("al_at", token, { maxAge: process.env.SECRET_KEY_MAX_AGE, httpOnly: false });
+                res.cookie("al_at", token, { maxAge: process.env.SECRET_KEY_MAX_AGE || SECRET_KEY_MAX_AGE, httpOnly: false });
                 res.status(200).json({ user: User });
             } else {
                 throw Error("incorrect password");
