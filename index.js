@@ -29,7 +29,7 @@ var corsOptions = {
   }
 }
 
-dotenv.config();
+dotenv.config({path:__dirname+"/.env"});
 
 const app = express();
 app.use("/public",express.static(path.join(__dirname, '/public')));
