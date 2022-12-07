@@ -61,7 +61,7 @@ const PORT = process.env.PORT ? process.env.PORT : 3000
 
 mongoose.connect(MONGO_URI).then(() => {
     console.log("then")
-    app.listen(process.env.PORT,()=>{
+    app.listen(PORT,()=>{
         console.log("Server started at " + PORT)
     })
 }).catch(e => console.log(e.message));
