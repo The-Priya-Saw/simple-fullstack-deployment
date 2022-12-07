@@ -59,6 +59,6 @@ console.assert(process.env.SECRET_KEY_MAX_AGE);
 mongoose.connect(MONGO_URI).then(() => {
     console.log("then")
     app.listen(process.env.PORT,()=>{
-        console.log("Server started at " + process.env.PORT)
+        console.log("Server started at " + process.env.PORT || 3000)
     })
 }).catch(e => console.log(e.message));
