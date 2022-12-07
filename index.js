@@ -56,9 +56,12 @@ console.assert(process.env.SECRET_KEY);
 console.assert(process.env.REFRESH_SECRET_KEY)
 console.assert(process.env.SECRET_KEY_MAX_AGE);
 
+
+const PORT = process.env.PORT ? process.env.PORT : 3000 
+
 mongoose.connect(MONGO_URI).then(() => {
     console.log("then")
     app.listen(process.env.PORT,()=>{
-        console.log("Server started at " + process.env.PORT || 3000)
+        console.log("Server started at " + PORT)
     })
 }).catch(e => console.log(e.message));
