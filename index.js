@@ -49,7 +49,8 @@ app.get("*", (req, res) => {
   res.sendFile(url);
 });
 
-const MONGO_URI="mongodb+srv://loki:kilo@cluster0.oczklsm.mongodb.net/?retryWrites=true&w=majority"
+// const MONGO_URI="mongodb+srv://loki:kilo@cluster0.oczklsm.mongodb.net/?retryWrites=true&w=majority"
+const MONGO_URI="mongodb://alumnit:1LD7ruVZzn5rB10H4IHjDxdCSR9BF0zozdsmStZdqa8om7WCWEiIEsaHB9GrjpSafL8SGOc1FpxoACDb6dHnTg==@alumnit.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@alumnit@";
 console.assert("Dotenv");
 console.assert(process.env.MONGO_URI);
 console.assert(process.env.SECRET_KEY);
